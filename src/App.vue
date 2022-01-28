@@ -2,7 +2,7 @@
   <div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/leaderboard/472883504217063466">Leaderboard</router-link>
+      <router-link to="/leaderboard/472883504217063466">Sample Leaderboard</router-link>
     </div>
     <router-view/>
   </div>
