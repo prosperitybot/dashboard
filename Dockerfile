@@ -3,10 +3,10 @@ FROM node:alpine AS build
 WORKDIR /dashboard
 
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 
 COPY . .
-RUN npm run build
+RUN yarn build
 
 FROM nginx:stable-alpine as dash
 
