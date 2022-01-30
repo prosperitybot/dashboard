@@ -18,33 +18,35 @@
   </v-container>
 </template>
 <script>
-import LeaderboardUserRow from '@/components/leaderboard/LeaderboardUserRow.vue'
-import axios from 'axios'
+import LeaderboardUserRow from '@/components/leaderboard/LeaderboardUserRow.vue';
+import axios from 'axios';
 
 export default {
-  name: 'Leaderboard',
+  name: 'ProsperityLeaderboard',
   components: {
-    LeaderboardUserRow
+    LeaderboardUserRow,
   },
-  data () {
+  data() {
     return {
       users: [],
       guild: null,
-      placeholderUser: { user: { username: 'Loading', discriminator: '0000' }, xp: 0, level: 0, messageCount: 0 }
-    }
+      placeholderUser: {
+        user: { username: 'Loading', discriminator: '0000' }, xp: 0, level: 0, messageCount: 0,
+      },
+    };
   },
   methods: {
-    getInitialUsers () {
+    getInitialUsers() {
       axios.get(`https://api.prosperitybot.net/v1/leaderboard/${this.$route.params.id}`).then((response) => {
-        this.users = response.data.users
-        this.guild = response.data.guild
-      })
-    }
+        this.users = response.data.users;
+        this.guild = response.data.guild;
+      });
+    },
   },
-  mounted () {
-    this.getInitialUsers()
-  }
-}
+  mounted() {
+    this.getInitialUsers();
+  },
+};
 </script>
 <style scoped>
 .leaderboardUserListContainer {

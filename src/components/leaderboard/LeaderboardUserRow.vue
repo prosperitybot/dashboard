@@ -24,10 +24,11 @@
 </template>
 
 <script>
-import LeaderboardUserStatistic from "@/components/leaderboard/LeaderboardUserStatistic.vue";
-import { formatNumber } from "@/utils/helper.js";
+import LeaderboardUserStatistic from '@/components/leaderboard/LeaderboardUserStatistic.vue';
+import { formatNumber } from '@/utils/helper';
+
 export default {
-  name: "LeaderboardUserRow",
+  name: 'LeaderboardUserRow',
   components: {
     LeaderboardUserStatistic,
   },

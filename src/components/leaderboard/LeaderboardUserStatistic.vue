@@ -10,9 +10,9 @@ export default {
   name: 'LeaderboardUserStatistic',
   props: {
     name: String,
-    value: String
-  }
-}
+    value: String,
+  },
+};
 </script>
 
 <style scoped>
