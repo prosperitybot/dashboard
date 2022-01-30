@@ -1,22 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 import router from './router'
-import * as Sentry from '@sentry/vue'
-import { Integrations } from '@sentry/tracing'
+import VueMobileDetection from 'vue-mobile-detection'
 
-const app = createApp(App)
+loadFonts()
 
-Sentry.init({
-  app,
-  dsn: process.env.SENTRY_DSN,
-  integrations: [
-    new Integrations.BrowserTracing({
-      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
-      tracingOrigins: ['localhost', 'dash.prosperitybot.net', /^\//]
-    })
-  ],
-  tracesSampleRate: 1.0
-})
-
-app.use(router)
-app.mount('#app')
+createApp(App).use(router)
+  .use(vuetify)
+  .use(VueMobileDetection)
+  .mount('#app')

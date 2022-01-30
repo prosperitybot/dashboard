@@ -1,16 +1,13 @@
 <template>
-  <div>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/leaderboard/472883504217063466">Sample Leaderboard</router-link>
-    </div>
-    <router-view />
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/leaderboard/472883504217063466">Sample Leaderboard</router-link>
   </div>
+  <router-view/>
 </template>
-<style>
+
+<style lang="scss">
 body {
-  margin: 0 !important;
-  color: #ffc30b;
   background-color: #1d1e28;
 }
 #app {
@@ -18,18 +15,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: #ffc30b;
 }
 
 #nav {
   padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #ffc30b;
-}
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>

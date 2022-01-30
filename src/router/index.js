@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Leaderboard from '../views/Leaderboard.vue'
 
 const routes = [
   {
@@ -11,7 +10,7 @@ const routes = [
   {
     path: '/leaderboard/:id',
     name: 'Leaderboard',
-    component: Leaderboard
+    component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/Leaderboard.vue')
   }
 ]
 

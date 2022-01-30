@@ -1,39 +1,43 @@
 <template>
-  <div class="leaderboardUser">
-    <div class="leaderboardUserLeft">
-      <div class="leaderboardUserUsername">
-        {{ user.user.username }}#{{ user.user.discriminator }}
+  <v-col cols="12">
+    <div class="leaderboardUser">
+      <div class="leaderboardUserLeft">
+        <div class="leaderboardUserUsername">
+          {{ user.user.username }}#{{ user.user.discriminator }}
+        </div>
+      </div>
+      <div class="leaderboardUserRight">
+        <LeaderboardUserStatistic name="LEVEL" :value="user.level.toString()" />
+        <LeaderboardUserStatistic
+          v-if="!this.$isMobile()"
+          name="EXPERIENCE"
+          :value="formatNumber(user.xp)"
+        />
+        <LeaderboardUserStatistic
+          v-if="!this.$isMobile()"
+          name="MESSAGES"
+          :value="formatNumber(user.messageCount)"
+        />
       </div>
     </div>
-    <div class="leaderboardUserRight">
-      <LeaderboardUserStatistic name="LEVEL" :value="user.level" />
-      <LeaderboardUserStatistic
-        name="EXPERIENCE"
-        :value="formatNumber(user.xp)"
-      />
-      <LeaderboardUserStatistic
-        name="MESSAGES"
-        :value="formatNumber(user.messageCount)"
-      />
-    </div>
-  </div>
+  </v-col>
 </template>
 
 <script>
-import LeaderboardUserStatistic from '@/components/leaderboard/LeaderboardUserStatistic.vue'
-import { formatNumber } from '@/utils/helper.js'
+import LeaderboardUserStatistic from "@/components/leaderboard/LeaderboardUserStatistic.vue";
+import { formatNumber } from "@/utils/helper.js";
 export default {
-  name: 'LeaderboardUserRow',
+  name: "LeaderboardUserRow",
   components: {
-    LeaderboardUserStatistic
+    LeaderboardUserStatistic,
   },
   props: {
-    user: Object
+    user: Object,
   },
   methods: {
-    formatNumber
-  }
-}
+    formatNumber,
+  },
+};
 </script>
 
 <style scoped>
@@ -42,7 +46,7 @@ export default {
   display: flex;
   flex-direction: row;
   height: 40px;
-  padding: 25px 0;
+  padding: 30px 10px;
   margin: 10px 5px;
   border-radius: 10px;
   align-items: center;
